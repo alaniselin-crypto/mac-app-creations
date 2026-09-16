@@ -43,7 +43,7 @@ const navItems = [
 ];
 
 const stats = [
-  { label: "Gesamtwert", value: "CHF 12'480.50", delta: "+8.2% this year" },
+  { label: "Gesamtwert", value: "CHF 12'480.50", delta: "+8.2% dieses Jahr" },
   { label: "Münzen", value: "238", delta: "6 Ordner" },
   { label: "Im Verkauf", value: "12", delta: "3 Plattformen" },
   { label: "Letzter Zukauf", value: "CHF 340.–", delta: "Helvetia Set, 12. Sep" },
