@@ -77,11 +77,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "INUMIS – Deine Münzsammlung im Blick" },
+      {
+        name: "description",
+        content:
+          "Verwalte deine Münzsammlung: Ordner, Verkaufsplattformen, Wertanalysen, Export und Backup – alles an einem Ort.",
+      },
+      { name: "author", content: "INUMIS" },
+      { property: "og:title", content: "INUMIS – Deine Münzsammlung im Blick" },
+      {
+        property: "og:description",
+        content:
+          "Verwalte deine Münzsammlung: Ordner, Verkaufsplattformen, Wertanalysen, Export und Backup – alles an einem Ort.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
