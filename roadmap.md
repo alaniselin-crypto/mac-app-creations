@@ -21,6 +21,7 @@
 - [ ] KI-Bilderkennung: Felder automatisch ausfüllen
 - [ ] Makro-Foto
 - [ ] Druckansicht & Katalog-Export schöner darstellen (Bild IMG_5007)
+- [ ] Eigene Felder: neue Feldtypen «Checkbox» und «Dropdown» (mit eigenen Optionen) ergänzen – NICHT sofort als Version bauen, User sammelt noch (Bild image-26, 17.09.)
 - [ ] Weitere Bilder vom User abwarten
 
 ### App Store
