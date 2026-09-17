@@ -22,6 +22,7 @@
 - [ ] Makro-Foto
 - [ ] Druckansicht & Katalog-Export schöner darstellen (Bild IMG_5007)
 - [ ] Eigene Felder: neue Feldtypen «Checkbox» und «Dropdown» (mit eigenen Optionen) ergänzen – NICHT sofort als Version bauen, User sammelt noch (Bild image-26, 17.09.)
+- [ ] Münzbilder: statt runder Kreis-Ausschnitt die Münze in einem Quadrat mit wenig Rand zeigen, Hintergrund NICHT entfernen – Kreis-Zentrierung klappt auch für KI schlecht (Bild image-27, 17.09.)
 - [ ] Weitere Bilder vom User abwarten
 
 ### App Store
