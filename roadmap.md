@@ -33,3 +33,4 @@
 - [ ] Support-URL für Apple
 - [ ] Bundle-ID von .test auf finalen Namen wechseln
 - [ ] 3 Abo-Technik-Punkte: Server-Prüfung gegen doppelte/veraltete Käufe, Apple-Server-Meldungen, echter Testkauf
+- [ ] Banknoten rechteckig darstellen (nicht im Kreis), Münzen quadratisch (Bild image-30, 17.09.)
