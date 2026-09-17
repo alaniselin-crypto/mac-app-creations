@@ -5,7 +5,25 @@
 - [x] Abo-Preise ausgefüllt (kopiert von inumis)
 
 ## Offen
-- [ ] Warten auf Users Liste: fehlende App-Store-Felder + gefundene Software-Fehler
+
+### Fehlerliste des Users (17.09.2026)
+- [ ] Eigene Felder anlegen/verwalten (Admin)
+- [ ] Einstellungen: Datensicherung & CSV Export/Import ohne Funktion
+- [ ] Material und Legierung standardmässig leer
+- [ ] Einstellungen: Anleitung und Hilfe
+- [ ] Einstellungen-Fenster verschiebt sich links/rechts
+- [ ] Hauptbildschirm verschiebt sich links/rechts
+- [ ] Datenschutzerklärung ganz unten bei der Anmeldung
+- [ ] Übersicht: mit welchen Diensten ist Numismatik verbunden (GitHub etc.)
+- [ ] Konto löschen funktioniert nicht
+- [ ] Wo werden Benutzerbilder gespeichert (Cloud?) – klären und anzeigen
+- [ ] Admin-eigene Felder, nur für Admin sichtbar
+- [ ] KI-Bilderkennung: Felder automatisch ausfüllen
+- [ ] Makro-Foto
+- [ ] Druckansicht & Katalog-Export schöner darstellen (Bild IMG_5007)
+- [ ] Weitere Bilder vom User abwarten
+
+### App Store
 - [ ] Datenschutz-Seite veröffentlichen (auf Users Wort)
 - [ ] Support-URL für Apple
 - [ ] Bundle-ID von .test auf finalen Namen wechseln
