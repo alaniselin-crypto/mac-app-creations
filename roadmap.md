@@ -8,7 +8,7 @@
 
 ### Fehlerliste des Users (17.09.2026)
 - [ ] Eigene Felder anlegen/verwalten (Admin)
-- [ ] Einstellungen: Datensicherung & CSV Export/Import ohne Funktion
+- [x] Einstellungen: Datensicherung & CSV Export/Import ohne Funktion (v11: iPhone nutzt natives Teilen-Menü via @capacitor/filesystem + share)
 - [ ] Material und Legierung standardmässig leer
 - [ ] Einstellungen: Anleitung und Hilfe
 - [ ] Einstellungen-Fenster verschiebt sich links/rechts
@@ -37,3 +37,4 @@
 - [ ] Banknoten rechteckig darstellen (nicht im Kreis), Münzen quadratisch (Bild image-30, 17.09.)
 
 - v10 gebaut (18.09.2026): /mnt/documents/Numismatik-App-v10.zip
+- v11 gebaut (18.09.2026): Backup am iPhone repariert (Teilen-Menü), goldenes Münz-Logo oben links statt altem Symbol; iOS-Flow jetzt `npx cap sync ios` statt copy
