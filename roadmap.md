@@ -6,6 +6,14 @@
 
 ## Offen
 
+### Windows-Punkte (User-Liste, 21.09.2026 – erledigt in v19)
+- [x] SKU-Nummerierung erneut auf 00001 zurücksetzen (Renumber-Schlüssel auf v3 erhöht)
+- [x] Analyse-Darstellung: Diagramm-Beschriftungen schräg/gekürzt, nichts mehr verschoben
+- [x] Hauptfenster kleiner: 1120×760 (statt 1280×850)
+- [x] Dashboard: Dollar-Symbol durch Münz-Symbol ersetzt, Beträge sind CHF
+- [x] CSV-Import: doppelte Münzen werden erkannt (gleiche SKU oder Name+Jahrgang) und zusammengeführt statt doppelt angelegt
+- [x] Einstellungen oben rechts: Menü-Spalte breiter (w-80)
+
 ### Fehlerliste des Users (17.09.2026)
 - [ ] Eigene Felder anlegen/verwalten (Admin)
 - [x] Einstellungen: Datensicherung & CSV Export/Import ohne Funktion (v11: iPhone nutzt natives Teilen-Menü via @capacitor/filesystem + share)
