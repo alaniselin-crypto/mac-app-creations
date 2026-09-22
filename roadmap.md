@@ -6,13 +6,13 @@
 
 ## Offen
 
-### Windows-Punkte (User-Liste, 21.09.2026 – Korrektur v20 in Arbeit)
-- [ ] SKU-Nummerierung nach vollständigem Cloud-Laden zuverlässig auf 00001 zurücksetzen
-- [ ] Analyse-Darstellung: störende Breitenregel entfernen und Diagramme sichtbar prüfen
+### Windows-Punkte (User-Liste, 21.09.2026 – korrigiert und geprüft in v20)
+- [x] SKU-Nummerierung nach vollständigem Cloud-Laden zuverlässig auf 00001 zurücksetzen
+- [x] Analyse-Darstellung: störende Breitenregel entfernen und Diagramme sichtbar prüfen
 - [x] Hauptfenster kleiner: 1120×760 (statt 1280×850)
 - [x] Dashboard: Dollar-Symbol durch Münz-Symbol ersetzt, Beträge sind CHF
-- [ ] CSV- und Bildimport: Duplikate vor neuer SKU-Vergabe erkennen
-- [ ] Einstellungen oben rechts: Breitenbegrenzung reparieren und Menü sichtbar prüfen
+- [x] CSV- und Bildimport: Duplikate vor neuer SKU-Vergabe erkennen
+- [x] Einstellungen oben rechts: Breitenbegrenzung reparieren und Menü sichtbar prüfen
 
 ### Fehlerliste des Users (17.09.2026)
 - [ ] Eigene Felder anlegen/verwalten (Admin)
