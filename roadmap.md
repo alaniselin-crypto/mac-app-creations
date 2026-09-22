@@ -6,13 +6,13 @@
 
 ## Offen
 
-### Windows-Punkte (User-Liste, 21.09.2026 – erledigt in v19)
-- [x] SKU-Nummerierung erneut auf 00001 zurücksetzen (Renumber-Schlüssel auf v3 erhöht)
-- [x] Analyse-Darstellung: Diagramm-Beschriftungen schräg/gekürzt, nichts mehr verschoben
+### Windows-Punkte (User-Liste, 21.09.2026 – korrigiert und geprüft in v20)
+- [x] SKU-Nummerierung nach vollständigem Cloud-Laden zuverlässig auf 00001 zurücksetzen
+- [x] Analyse-Darstellung: störende Breitenregel entfernen und Diagramme sichtbar prüfen
 - [x] Hauptfenster kleiner: 1120×760 (statt 1280×850)
 - [x] Dashboard: Dollar-Symbol durch Münz-Symbol ersetzt, Beträge sind CHF
-- [x] CSV-Import: doppelte Münzen werden erkannt (gleiche SKU oder Name+Jahrgang) und zusammengeführt statt doppelt angelegt
-- [x] Einstellungen oben rechts: Menü-Spalte breiter (w-80)
+- [x] CSV- und Bildimport: Duplikate vor neuer SKU-Vergabe erkennen
+- [x] Einstellungen oben rechts: Breitenbegrenzung reparieren und Menü sichtbar prüfen
 
 ### Fehlerliste des Users (17.09.2026)
 - [ ] Eigene Felder anlegen/verwalten (Admin)
