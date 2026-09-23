@@ -52,4 +52,4 @@
 ### SKU-Korrektur v23 (23.09.2026)
 - [x] Bestand einmalig ab 00001 neu nummerieren
 - [x] Danach gelöschte SKU dauerhaft nie wieder vergeben
-- [ ] Beide Regeln gemeinsam prüfen und Windows-Paket liefern
+- [x] Beide Regeln gemeinsam prüfen und Windows-Paket liefern
