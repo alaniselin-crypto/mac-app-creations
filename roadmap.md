@@ -48,3 +48,8 @@
 - v11 gebaut (18.09.2026): Backup am iPhone repariert (Teilen-Menü), goldenes Münz-Logo oben links statt altem Symbol; iOS-Flow jetzt `npx cap sync ios` statt copy
 
 - v22 (23.09.2026): SKU-Nummern werden nie wiederverwendet – geloeschte Nummer (z.B. 00009) bleibt frei, naechste neue Muenze bekommt 00010. Windows-Paket v22 geliefert.
+
+### SKU-Korrektur v23 (23.09.2026)
+- [x] Bestand einmalig ab 00001 neu nummerieren
+- [x] Danach gelöschte SKU dauerhaft nie wieder vergeben
+- [x] Beide Regeln gemeinsam prüfen und Windows-Paket liefern
