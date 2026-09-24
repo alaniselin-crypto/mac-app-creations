@@ -58,5 +58,6 @@
 - [x] Quellcode v23 (SKU-Fixes) für iPhone bereitgestellt: ios/-Ordner neu erstellt (war in allen ZIPs verloren), StoreKit-Brücke neu geschrieben, Symbol + Kamera-Zulassung, Name „Numismatik"
 - [x] Numismatik-App-v23-Quellcode.zip nach /mnt/documents/ geliefert
 - [x] Xcode-Fehler „Cannot find MyViewController in scope“ korrigiert: MyViewController.swift und AppleStoreKit.swift im App-Ziel eingebunden
-- [ ] User: auf dem iMac npm install → npm run build:ios → npx cap sync ios → Xcode → Archive → Upload
+- [x] Terminal-Befehle (npm install/build:ios/cap sync) überflüssig gemacht: v23-Fertig.zip enthält gebaute App-Seiten direkt im ios/App/Public — User öffnet nur noch Xcode
+- [ ] User: Xcode öffnen (ios → App → App.xcodeproj) → Team wählen → Any iOS Device (arm64) → Product → Archive → Distribute App → Upload
 - [ ] Nach Upload: neue Screenshots 02/03 (CHF NaN) ersetzen
