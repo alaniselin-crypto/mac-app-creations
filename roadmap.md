@@ -53,3 +53,9 @@
 - [x] Bestand einmalig ab 00001 neu nummerieren
 - [x] Danach gelöschte SKU dauerhaft nie wieder vergeben
 - [x] Beide Regeln gemeinsam prüfen und Windows-Paket liefern
+
+### iPhone v23 (24.09.2026)
+- [x] Quellcode v23 (SKU-Fixes) für iPhone bereitgestellt: ios/-Ordner neu erstellt (war in allen ZIPs verloren), StoreKit-Brücke neu geschrieben, Symbol + Kamera-Zulassung, Name „Numismatik"
+- [x] Numismatik-App-v23-Quellcode.zip nach /mnt/documents/ geliefert
+- [ ] User: auf dem iMac npm install → npm run build:ios → npx cap sync ios → Xcode → Archive → Upload
+- [ ] Nach Upload: neue Screenshots 02/03 (CHF NaN) ersetzen
