@@ -11,6 +11,7 @@
 - [x] iPhone: fehlende Google-Anbieter-Konfiguration eingegrenzt; prepare:ios synchronisiert und prüft sie (3 Tests bestanden)
 - [ ] Tatsächliche Mac-DMG und geräteübergreifende Synchronisierung testen – benötigt die verwendete DMG und einen Mac
 - [ ] iPhone-Anmeldung im neuen TestFlight-Paket testen – benötigt neues Xcode-Archiv und Upload
+- [x] iPhone-Paket v67 erstellt (17.10.2026): Build-Nummer 67 im Xcode-Projekt gesetzt, Web-Seiten frisch gebaut und synchronisiert, Google-Anbieter validiert; Numismatik-iPhone-v67.zip mit START-iPhone.command geliefert
 
 ### Windows-Punkte (User-Liste, 21.09.2026 – korrigiert und geprüft in v20)
 - [x] SKU-Nummerierung nach vollständigem Cloud-Laden zuverlässig auf 00001 zurücksetzen
