@@ -6,6 +6,10 @@
 
 ## Offen
 
+### Mac und iPhone (17.10.2026)
+- [ ] Mac-DMG: Anmeldung und geräteübergreifende Synchronisierung prüfen
+- [ ] iPhone: Google-Anmeldung mit fehlender Anbieter-Konfiguration prüfen und Vorbereitung absichern
+
 ### Windows-Punkte (User-Liste, 21.09.2026 – korrigiert und geprüft in v20)
 - [x] SKU-Nummerierung nach vollständigem Cloud-Laden zuverlässig auf 00001 zurücksetzen
 - [x] Analyse-Darstellung: störende Breitenregel entfernen und Diagramme sichtbar prüfen
