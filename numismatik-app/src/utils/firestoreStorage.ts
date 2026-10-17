@@ -16,6 +16,7 @@ import {
   getHighestCatalogNumber,
 } from './catalogNumberCounter';
 import { isDriveEnabled, uploadDrivePhoto, deleteDrivePhoto } from './googleDrive';
+import { definedFirestoreFields } from './definedFirestoreFields';
 
 const USERS_COLLECTION = 'users';
 const COINS_COLLECTION = 'coins';
@@ -354,7 +355,7 @@ export async function saveCoinToFirestore(uid: string, coin: Coin): Promise<Coin
       }
     }
 
-    const coinData = {
+    const coinData = definedFirestoreFields({
       ...cleanCoinData(coin),
       imageUrl,
       reverseImageUrl,
@@ -363,7 +364,7 @@ export async function saveCoinToFirestore(uid: string, coin: Coin): Promise<Coin
       driveFrontDirty: false,
       driveBackDirty: false,
       updatedAt: coin.updatedAt || new Date().toISOString(),
-    };
+    });
     await runTransaction(db, async transaction => {
       const tombstone = await transaction.get(userTombstoneDocument(validUid, coin.id));
       if (tombstone.exists()) throw new Error(`Coin ${coin.id} is protected by a deletion tombstone.`);
