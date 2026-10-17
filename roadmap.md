@@ -7,8 +7,10 @@
 ## Offen
 
 ### Mac und iPhone (17.10.2026)
-- [ ] Mac-DMG: Anmeldung und geräteübergreifende Synchronisierung prüfen
-- [ ] iPhone: Google-Anmeldung mit fehlender Anbieter-Konfiguration prüfen und Vorbereitung absichern
+- [x] Mac-Quellcode geprüft; undefinierte Foto-Felder vor dem Cloud-Speichern entfernt (2 Tests bestanden), Anmeldedienst erreichbar
+- [x] iPhone: fehlende Google-Anbieter-Konfiguration eingegrenzt; prepare:ios synchronisiert und prüft sie (3 Tests bestanden)
+- [ ] Tatsächliche Mac-DMG und geräteübergreifende Synchronisierung testen – benötigt die verwendete DMG und einen Mac
+- [ ] iPhone-Anmeldung im neuen TestFlight-Paket testen – benötigt neues Xcode-Archiv und Upload
 
 ### Windows-Punkte (User-Liste, 21.09.2026 – korrigiert und geprüft in v20)
 - [x] SKU-Nummerierung nach vollständigem Cloud-Laden zuverlässig auf 00001 zurücksetzen
