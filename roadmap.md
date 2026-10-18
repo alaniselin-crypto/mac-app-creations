@@ -87,3 +87,7 @@
 - [x] Fotos werden für die Cloud automatisch verkleinert; Hinweis + Knopf «Jetzt in die Cloud senden»
 - [x] Numismatik-Mac-v68.dmg und Numismatik-iPhone-v68.zip geliefert
 - [ ] User: v68 auf MacBook Air + iMac installieren, auf dem Air «Jetzt in die Cloud senden»; iPhone v68 via Xcode hochladen
+
+### iPhone v69 (18.10.2026)
+- [x] Xcode-Fehler «Cannot find MyViewController» dauerhaft korrigiert (SceneDelegate nutzt CAPBridgeViewController) und Paket v69 gebaut (Numismatik-iPhone-v69.zip, Build-Nummer 69, Google-Anbieter + Web-Assets enthalten)
+- [ ] User: v69 entpacken, START-iPhone.command, Xcode → Team → Any iOS Device → Archive → Upload
