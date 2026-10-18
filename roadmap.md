@@ -7,8 +7,10 @@
 ## Offen
 
 ### Geräteabgleich (18.10.2026)
-- [ ] Unterschiedliche Münzbestände und falsche Angaben bei gleichem Konto untersuchen; SKU-Logik unverändert lassen
-- [ ] Automatischen Empfang von Cloud-Änderungen und erneuten Abgleich nach Verbindungsunterbruch prüfen
+- [x] Ursache im Quellcode eingegrenzt: kein laufender Cloud-Empfang; weitere mögliche Ursachen offen, tatsächliche Gerätedaten nicht zugänglich; SKU-Logik unverändert
+- [x] Laufenden Cloud-Empfang und erneutes Lesen bei Rückkehr/Verbindung ergänzt; 3 Abgleich-Tests und 11 bestehende Schutztests bestanden (kein echter Gerätetest)
+- [ ] Falsches Bild/Angaben mit Screenshots der drei Geräte vergleichen – benötigt Screenshots und Angabe, welche Münzversion richtig ist
+- [ ] Aktualisierte Mac- und iPhone-Pakete bereitstellen – vorher verbleibende Ursache anhand Gerätedaten klären, vorhandene DMG/TestFlight enthalten diese Änderung noch nicht
 - [ ] Korrektur auf iMac, MacBook Air und iPhone gemeinsam bestätigen – benötigt aktualisierte installierte Apps und Geräteprüfung
 
 ### Mac und iPhone (17.10.2026)
