@@ -52,6 +52,7 @@ import {
 import { useAuth } from './context/AuthContext';
 import { auth } from './lib/firebase';
 import { startCollectionRefresh } from './utils/collectionRefresh';
+import { describeSyncError } from './utils/firestorePayloadSize';
 import { createAppleProSubscriptionActions } from './utils/appleProPurchaseDependencies';
 import type { AppleProProductId } from './utils/appleProPurchaseCoordinator';
 import type { AppleStoreKitProductPresentation } from './utils/appleStoreKit';
@@ -130,6 +131,8 @@ export default function App() {
   const [isFetchingWebhooks, setIsFetchingWebhooks] = useState<boolean>(false);
   const webhookImportRunningRef = useRef(false);
   const [cloudReadyUid, setCloudReadyUid] = useState<string | null>(null);
+  const [unsyncedCoins, setUnsyncedCoins] = useState<Array<{ name: string; reason: string }>>([]);
+  const [isRetryingSync, setIsRetryingSync] = useState<boolean>(false);
 
   // Preserve existing inventory numbers while normalizing display names.
   const ensureCoinSKUs = (rawCoins: Coin[]): Coin[] => {
@@ -601,19 +604,6 @@ export default function App() {
     }
   };
 
-  const handleTriggerTestWebhook = async () => {
-    setIsFetchingWebhooks(true);
-    try {
-      const res = await fetch('/api/webhook/make/test', { method: 'POST' });
-      if (res.ok) {
-        await handleFetchPendingWebhooks(true);
-      }
-    } catch {
-      setImportToast('⚠️ Fehler beim Erstellen der Testmünze.');
-    } finally {
-      setIsFetchingWebhooks(false);
-    }
-  };
 
   useEffect(() => {
     handleFetchPendingWebhooks(false);
@@ -649,6 +639,41 @@ export default function App() {
     const processed = ensureCoinSKUs(Array.from(mergedById.values()));
     setCoins(processed);
     saveUserCoinsToStorage(userUid, processed);
+  };
+
+  // Zeigt sichtbar an, welche Münzen noch nicht in der Cloud sind (statt sie still lokal zu behalten).
+  useEffect(() => {
+    if (!userUid) { setUnsyncedCoins([]); return; }
+    const read = () => {
+      const items = loadUserPendingMutations(userUid)
+        .filter(mutation => mutation.type === 'upsertCoin' && mutation.coin && (mutation.attempts > 0 || Date.now() - Date.parse(mutation.createdAt) > 30_000))
+        .map(mutation => ({
+          name: getCoinTitle(mutation.coin as Coin) || 'Münze',
+          reason: describeSyncError(mutation.lastError),
+        }));
+      setUnsyncedCoins(current => JSON.stringify(current) === JSON.stringify(items) ? current : items);
+    };
+    read();
+    const interval = setInterval(read, 5000);
+    return () => clearInterval(interval);
+  }, [userUid]);
+
+  const handleRetryUnsynced = async () => {
+    if (!userUid || isRetryingSync) return;
+    setIsRetryingSync(true);
+    try {
+      await handleSyncLocalDataToCloud();
+    } catch (error) {
+      console.error('Manual cloud retry failed:', error);
+    } finally {
+      const items = loadUserPendingMutations(userUid)
+        .filter(mutation => mutation.type === 'upsertCoin' && mutation.coin)
+        .map(mutation => ({ name: getCoinTitle(mutation.coin as Coin) || 'Münze', reason: describeSyncError(mutation.lastError) }));
+      setUnsyncedCoins(items);
+      setImportToast(items.length === 0 ? '✅ Alle Münzen sind jetzt in der Cloud.' : `⚠️ ${items.length} Münze(n) konnten nicht gesendet werden.`);
+      setTimeout(() => setImportToast(null), 6000);
+      setIsRetryingSync(false);
+    }
   };
 
   // Sync state to LocalStorage & State
@@ -1236,15 +1261,26 @@ export default function App() {
         isFetchingWebhooks={isFetchingWebhooks}
       />
 
+      {userUid && unsyncedCoins.length > 0 && (
+        <div className="bg-amber-900/90 border-b border-amber-600 text-white px-4 py-2.5 text-center text-xs sm:text-sm font-medium shadow-lg flex flex-wrap items-center justify-center gap-3">
+          <span>
+            ☁️ {unsyncedCoins.length} Münze(n) nur auf diesem Gerät, noch nicht in der Cloud:{' '}
+            {unsyncedCoins.slice(0, 3).map(item => `${item.name} (${item.reason})`).join(', ')}
+            {unsyncedCoins.length > 3 ? ' …' : ''}
+          </span>
+          <button
+            onClick={() => { void handleRetryUnsynced(); }}
+            disabled={isRetryingSync}
+            className="px-2.5 py-1 text-xs bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold rounded-md shadow transition-all disabled:opacity-60"
+          >
+            {isRetryingSync ? 'Sende …' : 'Jetzt in die Cloud senden'}
+          </button>
+        </div>
+      )}
+
       {importToast && (
         <div className="bg-emerald-800/90 border-b border-emerald-600 text-white px-4 py-2.5 text-center text-xs sm:text-sm font-medium shadow-lg flex flex-wrap items-center justify-center gap-3">
           <span>{importToast}</span>
-          <button
-            onClick={handleTriggerTestWebhook}
-            className="px-2.5 py-1 text-xs bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold rounded-md shadow transition-all"
-          >
-            🧪 Test-Münze simulieren
-          </button>
           <button
             onClick={() => setImportToast(null)}
             className="text-xs underline opacity-80 hover:opacity-100"
