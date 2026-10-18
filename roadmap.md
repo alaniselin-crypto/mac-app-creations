@@ -6,6 +6,11 @@
 
 ## Offen
 
+### Erneute Fehler v69 / DMG (18.10.2026)
+- [ ] iPhone: wiederholte Google-Anbieter-Meldung anhand nativer Paket-/Startkonfiguration klären; Anmeldung auf echtem Gerät noch nicht bestätigt
+- [ ] Mac: zuvor quadratische Münzbilder wiederherstellen, Banknoten unverändert
+- [ ] Neue Pakete erst nach Prüfung bereitstellen; echte Geräteprüfung bleibt erforderlich
+
 ### Geräteabgleich (18.10.2026)
 - [x] Ursache im Quellcode eingegrenzt: kein laufender Cloud-Empfang; weitere mögliche Ursachen offen, tatsächliche Gerätedaten nicht zugänglich; SKU-Logik unverändert
 - [x] Laufenden Cloud-Empfang und erneutes Lesen bei Rückkehr/Verbindung ergänzt; 3 Abgleich-Tests und 11 bestehende Schutztests bestanden (kein echter Gerätetest)
