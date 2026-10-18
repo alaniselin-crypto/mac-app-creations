@@ -6,6 +6,12 @@
 
 ## Offen
 
+### Erneute Fehler v69 / DMG (18.10.2026)
+- [x] iPhone-Paket geprüft: Google-Anbieter enthalten, aber GoogleService-Info.plist fehlt im Paket und im Xcode-Ziel; Plugin beendet Initialisierung bei fehlender Datei und kann dieselbe Anbieter-Meldung zeigen
+- [ ] iPhone: vorhandene native Google-Einstellungen auf dem iMac sicher einbinden und tatsächliches Archiv prüfen; benötigt lokale Datei und Geräteprüfung
+- [x] Mac-Quellcode: quadratische Münzbilder wiederhergestellt, Banknoten unverändert; noch nicht in neuer DMG geliefert
+- [ ] Neue Pakete erst nach Prüfung bereitstellen; echte Geräteprüfung bleibt erforderlich
+
 ### Geräteabgleich (18.10.2026)
 - [x] Ursache im Quellcode eingegrenzt: kein laufender Cloud-Empfang; weitere mögliche Ursachen offen, tatsächliche Gerätedaten nicht zugänglich; SKU-Logik unverändert
 - [x] Laufenden Cloud-Empfang und erneutes Lesen bei Rückkehr/Verbindung ergänzt; 3 Abgleich-Tests und 11 bestehende Schutztests bestanden (kein echter Gerätetest)
