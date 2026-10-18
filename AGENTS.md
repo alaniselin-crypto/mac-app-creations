@@ -12,3 +12,4 @@
 - Prepare iOS with `npm run prepare:ios` before archiving; it syncs Capacitor and checks the generated Google provider configuration to prevent stale native login settings.
 - Keep the Numismatik SKU allocation, reset, import and deletion-number logic unchanged unless the user expressly requests a SKU correction; the confirmed v23 behavior is the reference.
 - Filter undefined optional fields from finalized Firestore coin payloads before writing; Firebase rejects them even if the original coin was already cleaned.
+- Receive collection changes with UID-scoped Firestore listeners and a single-flight refresh coordinator; passive refreshes never replay queued writes or alter SKU logic, preventing remote updates from triggering stale writes.

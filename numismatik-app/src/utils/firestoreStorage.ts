@@ -3,6 +3,8 @@ import {
   doc,
   getDoc,
   getDocs,
+  getDocsFromServer,
+  onSnapshot,
   runTransaction,
   serverTimestamp,
   setDoc,
@@ -168,12 +170,24 @@ function arraysEqual(left: string[] = [], right: string[] = []): boolean {
   return left.length === right.length && left.every((value, index) => value === right[index]);
 }
 
-export async function fetchUserCoinSyncSnapshot(uid: string): Promise<CoinSyncSnapshot> {
+export function subscribeUserCoinChanges(
+  uid: string,
+  changed: () => void,
+  failed: (error: unknown) => void,
+): () => void {
+  const notify = () => changed();
+  const stopCoins = onSnapshot(userCoinsCollection(uid), notify, failed);
+  const stopTombstones = onSnapshot(userTombstonesCollection(uid), notify, failed);
+  return () => { stopCoins(); stopTombstones(); };
+}
+
+export async function fetchUserCoinSyncSnapshot(uid: string, fromServer = false): Promise<CoinSyncSnapshot> {
   const validUid = requireUid(uid);
   try {
+    const read = fromServer ? getDocsFromServer : getDocs;
     const [coinSnapshot, tombstoneSnapshot] = await Promise.all([
-      getDocs(userCoinsCollection(validUid)),
-      getDocs(userTombstonesCollection(validUid)),
+      read(userCoinsCollection(validUid)),
+      read(userTombstonesCollection(validUid)),
     ]);
     const tombstones = tombstoneSnapshot.docs.map(document => {
       const data = document.data();

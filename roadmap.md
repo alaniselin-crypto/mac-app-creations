@@ -6,6 +6,13 @@
 
 ## Offen
 
+### Geräteabgleich (18.10.2026)
+- [x] Ursache im Quellcode eingegrenzt: kein laufender Cloud-Empfang; weitere mögliche Ursachen offen, tatsächliche Gerätedaten nicht zugänglich; SKU-Logik unverändert
+- [x] Laufenden Cloud-Empfang und erneutes Lesen bei Rückkehr/Verbindung ergänzt; 3 Abgleich-Tests und 11 bestehende Schutztests bestanden (kein echter Gerätetest)
+- [ ] Falsches Bild/Angaben mit Screenshots der drei Geräte vergleichen – benötigt Screenshots und Angabe, welche Münzversion richtig ist
+- [ ] Aktualisierte Mac- und iPhone-Pakete bereitstellen – vorher verbleibende Ursache anhand Gerätedaten klären, vorhandene DMG/TestFlight enthalten diese Änderung noch nicht
+- [ ] Korrektur auf iMac, MacBook Air und iPhone gemeinsam bestätigen – benötigt aktualisierte installierte Apps und Geräteprüfung
+
 ### Mac und iPhone (17.10.2026)
 - [x] Mac-Quellcode geprüft; undefinierte Foto-Felder vor dem Cloud-Speichern entfernt (2 Tests bestanden), Anmeldedienst erreichbar
 - [x] iPhone: fehlende Google-Anbieter-Konfiguration eingegrenzt; prepare:ios synchronisiert und prüft sie (3 Tests bestanden)
