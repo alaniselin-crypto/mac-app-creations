@@ -6,6 +6,11 @@
 
 ## Offen
 
+### Geräteabgleich (18.10.2026)
+- [ ] Unterschiedliche Münzbestände und falsche Angaben bei gleichem Konto untersuchen; SKU-Logik unverändert lassen
+- [ ] Automatischen Empfang von Cloud-Änderungen und erneuten Abgleich nach Verbindungsunterbruch prüfen
+- [ ] Korrektur auf iMac, MacBook Air und iPhone gemeinsam bestätigen – benötigt aktualisierte installierte Apps und Geräteprüfung
+
 ### Mac und iPhone (17.10.2026)
 - [x] Mac-Quellcode geprüft; undefinierte Foto-Felder vor dem Cloud-Speichern entfernt (2 Tests bestanden), Anmeldedienst erreichbar
 - [x] iPhone: fehlende Google-Anbieter-Konfiguration eingegrenzt; prepare:ios synchronisiert und prüft sie (3 Tests bestanden)
