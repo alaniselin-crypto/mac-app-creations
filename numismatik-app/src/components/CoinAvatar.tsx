@@ -43,10 +43,10 @@ export const CoinAvatar: React.FC<CoinAvatarProps> = ({
 
   // Size configurations
   const sizeClasses = {
-    sm: isBanknote ? 'w-11 h-7 rounded-md text-xs' : 'w-8 h-8 rounded-full text-xs',
-    md: isBanknote ? 'w-24 sm:w-28 h-16 sm:h-18 rounded-xl text-sm' : 'w-20 h-20 sm:w-24 sm:h-24 rounded-full text-base',
-    lg: isBanknote ? 'w-48 h-32 rounded-xl text-base' : 'w-36 h-36 sm:w-44 sm:h-44 rounded-full text-lg',
-    xl: isBanknote ? 'w-64 sm:w-80 h-40 sm:h-52 rounded-2xl text-lg' : 'w-48 h-48 sm:w-64 sm:h-64 rounded-full text-xl'
+    sm: isBanknote ? 'w-11 h-7 rounded-md text-xs' : 'w-8 h-8 rounded-md text-xs',
+    md: isBanknote ? 'w-24 sm:w-28 h-16 sm:h-18 rounded-xl text-sm' : 'w-20 h-20 sm:w-24 sm:h-24 rounded-md text-base',
+    lg: isBanknote ? 'w-48 h-32 rounded-xl text-base' : 'w-36 h-36 sm:w-44 sm:h-44 rounded-md text-lg',
+    xl: isBanknote ? 'w-64 sm:w-80 h-40 sm:h-52 rounded-2xl text-lg' : 'w-48 h-48 sm:w-64 sm:h-64 rounded-md text-xl'
   };
 
   const formattedUrl = formatDriveImageUrl(imageUrl);
