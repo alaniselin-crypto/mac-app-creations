@@ -71,4 +71,5 @@
 
 ### Mac-DMG (18.10.2026)
 - [x] Mac-ZIP aus v67-Quellcode gebaut (Numismatik-Mac.zip im Dateien-Bereich)
-- [ ] DMG: hier nicht moeglich (braucht macOS-Werkzeug) – auf dem iMac im v67-Ordner `npm install && npm run build:mac` ausfuehren
+- [x] DMG-Bau auf iMac blieb beim Signieren haengen → neue Mac-ZIPs mit Installieren.command und Muenz-Symbol (Apple-Chip + Intel, 18.10.2026)
+- [ ] User: Mac-ZIP auf dem iMac installieren und Start + Anmeldung testen
