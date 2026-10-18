@@ -13,3 +13,5 @@
 - Keep the Numismatik SKU allocation, reset, import and deletion-number logic unchanged unless the user expressly requests a SKU correction; the confirmed v23 behavior is the reference.
 - Filter undefined optional fields from finalized Firestore coin payloads before writing; Firebase rejects them even if the original coin was already cleaned.
 - Receive collection changes with UID-scoped Firestore listeners and a single-flight refresh coordinator; passive refreshes never replay queued writes or alter SKU logic, preventing remote updates from triggering stale writes.
+- Shrink coin photos until the Firestore document stays under ~900 KB and show a visible "nur auf diesem Gerät" banner for queued coin uploads; Firestore rejects documents over 1 MiB and failed uploads must never stay silently local.
+- Never expose developer test buttons (e.g. simulated webhook test coins) in user-facing UI; they created real coins in user collections.

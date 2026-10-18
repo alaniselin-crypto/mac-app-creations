@@ -19,6 +19,7 @@ import {
 } from './catalogNumberCounter';
 import { isDriveEnabled, uploadDrivePhoto, deleteDrivePhoto } from './googleDrive';
 import { definedFirestoreFields } from './definedFirestoreFields';
+import { fitCoinImagesToFirestoreLimit } from './firestorePayloadSize';
 
 const USERS_COLLECTION = 'users';
 const COINS_COLLECTION = 'coins';
@@ -293,9 +294,9 @@ export async function reserveNextCatalogNumberForUser(uid: string, knownCoins: C
   }
 }
 
-export async function compressDataUrlIfNeeded(dataUrl: string, maxDim = 800, quality = 0.75): Promise<string> {
+export async function compressDataUrlIfNeeded(dataUrl: string, maxDim = 800, quality = 0.75, force = false): Promise<string> {
   if (!dataUrl || !dataUrl.startsWith('data:image/')) return dataUrl;
-  if (dataUrl.length < 300 * 1024) return dataUrl;
+  if (!force && dataUrl.length < 300 * 1024) return dataUrl;
 
   return new Promise(resolve => {
     const img = new Image();
@@ -369,7 +370,7 @@ export async function saveCoinToFirestore(uid: string, coin: Coin): Promise<Coin
       }
     }
 
-    const coinData = definedFirestoreFields({
+    const coinData = await fitCoinImagesToFirestoreLimit(definedFirestoreFields({
       ...cleanCoinData(coin),
       imageUrl,
       reverseImageUrl,
@@ -378,7 +379,7 @@ export async function saveCoinToFirestore(uid: string, coin: Coin): Promise<Coin
       driveFrontDirty: false,
       driveBackDirty: false,
       updatedAt: coin.updatedAt || new Date().toISOString(),
-    });
+    }), (dataUrl, maxDim, quality) => compressDataUrlIfNeeded(dataUrl, maxDim, quality, true));
     await runTransaction(db, async transaction => {
       const tombstone = await transaction.get(userTombstoneDocument(validUid, coin.id));
       if (tombstone.exists()) throw new Error(`Coin ${coin.id} is protected by a deletion tombstone.`);

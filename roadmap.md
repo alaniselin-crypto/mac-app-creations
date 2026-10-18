@@ -81,3 +81,9 @@
 - [x] DMG-Bau auf iMac blieb beim Signieren haengen → neue Mac-ZIPs mit Installieren.command und Muenz-Symbol (Apple-Chip + Intel, 18.10.2026)
 - [x] Echte DMG für Apple-Chip ohne Mac erstellt (Numismatik-Mac-Apple-Chip.dmg, Grundsignatur, 18.10.2026)
 - [ ] User: DMG auf dem iMac öffnen, App in Programme ziehen, Start + Anmeldung testen
+
+### Abgleich v68 (18.10.2026)
+- [x] Ursache: Münzen blieben still nur lokal (Upload fehlgeschlagen, z. B. Fotos zu gross); Testmünzen-Knopf entfernt
+- [x] Fotos werden für die Cloud automatisch verkleinert; Hinweis + Knopf «Jetzt in die Cloud senden»
+- [x] Numismatik-Mac-v68.dmg und Numismatik-iPhone-v68.zip geliefert
+- [ ] User: v68 auf MacBook Air + iMac installieren, auf dem Air «Jetzt in die Cloud senden»; iPhone v68 via Xcode hochladen
