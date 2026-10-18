@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "tsx server.ts",
     "test": "node --import tsx --test src/server/*.test.ts src/utils/*.test.ts src/components/*.test.tsx scripts/*.test.mjs",
-    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --sourcemap --outfile=dist/server.cjs",
+    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --sourcemap --external:vite --external:fsevents --external:lightningcss --external:esbuild --outfile=dist/server.cjs",
     "build:ios": "vite build --outDir dist-ios",
     "prepare:ios": "node scripts/prepare-ios.mjs",
     "start": "node dist/server.cjs",
