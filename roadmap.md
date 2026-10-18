@@ -8,8 +8,8 @@
 
 ### Erneute Fehler v69 / DMG (18.10.2026)
 - [x] iPhone-Paket geprüft: Google-Anbieter enthalten, aber GoogleService-Info.plist fehlt im Paket und im Xcode-Ziel; Plugin beendet Initialisierung bei fehlender Datei und kann dieselbe Anbieter-Meldung zeigen
-- [x] iPhone v70: Numismatik-iPhone-v70.zip (Build-Nummer 70) geliefert; START-iPhone.command sucht GoogleService-Info.plist auf dem iMac (Cursor-Ordner/Downloads/Desktop, sonst Ziehen-ins-Fenster), kopiert nach ios/App/App, trägt es ins Xcode-Ziel ein (scripts/add_google_plist.py, getestet) und öffnet Xcode
-- [ ] User: v70 entpacken, START-iPhone.command, Xcode → Any iOS Device (arm64) → Archive → Upload; danach Google-Anmeldung in TestFlight am iPhone testen
+- [x] iPhone v71: Numismatik-iPhone-v71.zip (Build-Nummer 71) geliefert; v70 fehlte firebase-applet-config.json (Bau brach ab), in v71 ergänzt. START-iPhone.command sucht GoogleService-Info.plist auf dem iMac, kopiert nach ios/App/App, trägt es ins Xcode-Ziel ein und öffnet Xcode
+- [ ] User: v71 entpacken, START-iPhone.command, Xcode → Any iOS Device (arm64) → Archive → Upload; danach Google-Anmeldung in TestFlight am iPhone testen
 - [x] Mac-Quellcode: quadratische Münzbilder wiederhergestellt, Banknoten unverändert; noch nicht in neuer DMG geliefert
 - [ ] Neue Pakete erst nach Prüfung bereitstellen; echte Geräteprüfung bleibt erforderlich
 
