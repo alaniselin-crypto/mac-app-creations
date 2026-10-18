@@ -68,3 +68,7 @@
 - [x] Terminal-Befehle (npm install/build:ios/cap sync) überflüssig gemacht: v23-Fertig.zip enthält gebaute App-Seiten direkt im ios/App/Public — User öffnet nur noch Xcode
 - [ ] User: Xcode öffnen (ios → App → App.xcodeproj) → Team wählen → Any iOS Device (arm64) → Product → Archive → Distribute App → Upload
 - [ ] Nach Upload: neue Screenshots 02/03 (CHF NaN) ersetzen
+
+### Mac-DMG (18.10.2026)
+- [x] Mac-ZIP aus v67-Quellcode gebaut (Numismatik-Mac.zip im Dateien-Bereich)
+- [ ] DMG: hier nicht moeglich (braucht macOS-Werkzeug) – auf dem iMac im v67-Ordner `npm install && npm run build:mac` ausfuehren
