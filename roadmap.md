@@ -7,8 +7,9 @@
 ## Offen
 
 ### Erneute Fehler v69 / DMG (18.10.2026)
-- [ ] iPhone: wiederholte Google-Anbieter-Meldung anhand nativer Paket-/Startkonfiguration klären; Anmeldung auf echtem Gerät noch nicht bestätigt
-- [ ] Mac: zuvor quadratische Münzbilder wiederherstellen, Banknoten unverändert
+- [x] iPhone-Paket geprüft: Google-Anbieter enthalten, aber GoogleService-Info.plist fehlt im Paket und im Xcode-Ziel; Plugin beendet Initialisierung bei fehlender Datei und kann dieselbe Anbieter-Meldung zeigen
+- [ ] iPhone: vorhandene native Google-Einstellungen auf dem iMac sicher einbinden und tatsächliches Archiv prüfen; benötigt lokale Datei und Geräteprüfung
+- [x] Mac-Quellcode: quadratische Münzbilder wiederhergestellt, Banknoten unverändert; noch nicht in neuer DMG geliefert
 - [ ] Neue Pakete erst nach Prüfung bereitstellen; echte Geräteprüfung bleibt erforderlich
 
 ### Geräteabgleich (18.10.2026)
