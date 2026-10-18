@@ -72,4 +72,5 @@
 ### Mac-DMG (18.10.2026)
 - [x] Mac-ZIP aus v67-Quellcode gebaut (Numismatik-Mac.zip im Dateien-Bereich)
 - [x] DMG-Bau auf iMac blieb beim Signieren haengen → neue Mac-ZIPs mit Installieren.command und Muenz-Symbol (Apple-Chip + Intel, 18.10.2026)
-- [ ] User: Mac-ZIP auf dem iMac installieren und Start + Anmeldung testen
+- [x] Echte DMG für Apple-Chip ohne Mac erstellt (Numismatik-Mac-Apple-Chip.dmg, Grundsignatur, 18.10.2026)
+- [ ] User: DMG auf dem iMac öffnen, App in Programme ziehen, Start + Anmeldung testen
