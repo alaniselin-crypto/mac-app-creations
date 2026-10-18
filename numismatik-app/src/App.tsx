@@ -40,6 +40,7 @@ import { formatCatalogNumber, parseCatalogNumber, renumberCatalogNumbers } from 
 import { findDuplicateCoin } from './utils/importDedup';
 import {
   fetchUserCoinSyncSnapshot,
+  subscribeUserCoinChanges,
   fetchUserSettings,
   saveCoinToFirestore, 
   deleteCoinFromFirestore, 
@@ -50,6 +51,7 @@ import {
 } from './utils/firestoreStorage';
 import { useAuth } from './context/AuthContext';
 import { auth } from './lib/firebase';
+import { startCollectionRefresh } from './utils/collectionRefresh';
 import { createAppleProSubscriptionActions } from './utils/appleProPurchaseDependencies';
 import type { AppleProProductId } from './utils/appleProPurchaseCoordinator';
 import type { AppleStoreKitProductPresentation } from './utils/appleStoreKit';
@@ -127,6 +129,7 @@ export default function App() {
   const [importToast, setImportToast] = useState<string | null>(null);
   const [isFetchingWebhooks, setIsFetchingWebhooks] = useState<boolean>(false);
   const webhookImportRunningRef = useRef(false);
+  const [cloudReadyUid, setCloudReadyUid] = useState<string | null>(null);
 
   // Preserve existing inventory numbers while normalizing display names.
   const ensureCoinSKUs = (rawCoins: Coin[]): Coin[] => {
@@ -244,6 +247,7 @@ export default function App() {
   // Initial Load & User Auth Sync
   useEffect(() => {
     if (loading) return;
+    setCloudReadyUid(null);
 
     if (userUid) {
       let cancelled = false;
@@ -326,8 +330,10 @@ export default function App() {
           saveUserPlatformsToStorage(userUid, effectivePlatforms);
 
           await flushPendingMutations(userUid, cloudTombstoneIds);
+          if (!cancelled) setCloudReadyUid(userUid);
         } catch (error) {
           console.error('Initial UID-scoped cloud sync failed; continuing with local data:', error);
+          if (!cancelled) setCloudReadyUid(userUid);
         }
       })();
 
@@ -338,6 +344,49 @@ export default function App() {
       setPlatforms([]);
     }
   }, [userUid, loading]);
+
+  // Receive remote changes without replaying stale offline edits or touching SKUs.
+  useEffect(() => {
+    if (!userUid || cloudReadyUid !== userUid) return;
+    const uid = userUid;
+    let cancelled = false;
+    const controller = startCollectionRefresh({
+      subscribe: (changed, failed) => subscribeUserCoinChanges(uid, changed, failed),
+      onError: error => console.error('Cloud collection refresh failed; keeping current collection:', error),
+      refresh: async () => {
+        const snapshot = await fetchUserCoinSyncSnapshot(uid, true);
+        if (cancelled || auth.currentUser?.uid !== uid) return;
+        const hiddenIds = new Set([
+          ...snapshot.tombstones.map(tombstone => tombstone.coinId),
+          ...loadUserCoinTombstones(uid).map(tombstone => tombstone.coinId),
+        ]);
+        const merged = new Map(snapshot.coins
+          .filter(coin => !hiddenIds.has(coin.id))
+          .map(coin => [coin.id, coin]));
+        for (const mutation of loadUserPendingMutations(uid)) {
+          if (mutation.type === 'upsertCoin' && mutation.coin && !hiddenIds.has(mutation.coin.id)) {
+            merged.set(mutation.coin.id, mutation.coin);
+          }
+        }
+        const nextCoins = ensureCoinSKUs(Array.from(merged.values()));
+        saveUserCoinsToStorage(uid, nextCoins);
+        setCoins(nextCoins);
+        setDetailCoin(current => current ? nextCoins.find(coin => coin.id === current.id) ?? null : null);
+      },
+    });
+    const request = () => { void controller.request(); };
+    const foreground = () => { if (document.visibilityState === 'visible') request(); };
+    window.addEventListener('online', request);
+    window.addEventListener('focus', request);
+    document.addEventListener('visibilitychange', foreground);
+    return () => {
+      cancelled = true;
+      controller.stop();
+      window.removeEventListener('online', request);
+      window.removeEventListener('focus', request);
+      document.removeEventListener('visibilitychange', foreground);
+    };
+  }, [userUid, cloudReadyUid]);
 
   // Polling Make.com Webhook Pending Items
   const handleFetchPendingWebhooks = async (isManual = false) => {
